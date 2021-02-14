@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
@@ -44,11 +43,11 @@ public class Logic extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblConnect = new JLabel("Connect");
-		lblConnect.setBounds(15, 65, 50, 20);
+		lblConnect.setBounds(15, 25, 50, 20);
 		contentPane.add(lblConnect);
 
 		JButton btnConnect = new JButton("Connect to Northwind DB");
-		btnConnect.setBounds(100, 60, 200, 30);
+		btnConnect.setBounds(100, 20, 200, 30);
 		btnConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -71,11 +70,11 @@ public class Logic extends JFrame {
 		contentPane.add(btnConnect);
 		
 		JLabel lblCount = new JLabel("Count");
-		lblCount.setBounds(15, 140, 50, 20);
+		lblCount.setBounds(15, 50, 50, 20);
 		contentPane.add(lblCount);
 		
 		JButton btnCount = new JButton("Customer Count");
-		btnCount.setBounds(100, 135, 200, 30);
+		btnCount.setBounds(100, 45, 200, 30);
 		btnCount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -106,7 +105,26 @@ public class Logic extends JFrame {
 				
 			}
 		});
-		contentPane.add(btnName);		
+		contentPane.add(btnName);	
+		
+		JLabel lblOc = new JLabel("Order Count");
+		lblOc.setBounds(15, 215, 50, 20);
+		contentPane.add(lblOc);
+		
+		JButton btnOc = new JButton("Order Count");
+		btnOc.setBounds(100, 210, 200, 30);
+		btnOc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					String nameOcValue = database.getCompanyNames();
+					javax.swing.JOptionPane.showMessageDialog(null, "Our Customer names are: " + nameOcValue);
+				}catch(Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				
+			}
+		});
+		contentPane.add(btnOc);		
 	}
 
 }
